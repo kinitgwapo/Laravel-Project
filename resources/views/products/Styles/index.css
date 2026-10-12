@@ -249,11 +249,11 @@ a.edit-btn:hover {
 }
 
 /* Remove Button */
-remove-btn {
+.remove-btn {
     display: inline-block;
     color: #ff3333;
     border: 1px solid #ff0000;
-    padding: 4px 14px;
+    padding: 2px 4px;
     text-decoration: none;
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -262,7 +262,7 @@ remove-btn {
     background-color: transparent;
 }
 
-remove-btn:hover {
+.remove-btn:hover {
     background-color: #ff0000;
     color: #000000;
     box-shadow: 0 0 12px #ff0000;
