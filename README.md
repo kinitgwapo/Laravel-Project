@@ -12,37 +12,37 @@ Answer the following questions:
 
 
 
-3. What is the purpose of the auth middleware?
+#### 3. What is the purpose of the auth middleware?
 
  - Authentication middleware deals with routing access by verifying if there is a currently logged in user or the login credentials is authenticated. If the user accesses a page without logging in, they're redirected back to a specific page.
 
 
 
-4. Why should Product CRUD routes be protected from unauthenticated users?
+#### 4. Why should Product CRUD routes be protected from unauthenticated users?
 
  - Some pages require the users to login to verify who is currently modifying the database. Say, imagine a bank account through the website where anyone can access a specific savings and withdraw anonymously.
 
 
 
-5. What is the role of SMTP configuration in password recovery?
+#### 5. What is the role of SMTP configuration in password recovery?
 
  - The purpose of Simple Mail Transfer Protocol (SMTP) is for Laravel to allow sending email configured by a mail server, typically containing password reset, or important information. For this scenario, the SMTP is used for password recovery/reset when the user forgets, and by providing the user's email, they will be sent an email with instructions to reset their account password.
 
 
 
-6. Why should email credentials be kept in the .env file?
+#### 6. Why should email credentials be kept in the .env file?
 
  - Because the environment file (env) contains credentials like email, database, or simply personal or private information and is used to avoid adding private information directly to the source code. Laravel also excludes it from git commit, which means, it is not tracked the by git history. Although, the developers must ensure that it is kept privately and not published with the project.
 
 
 
-7. What is the difference between authentication and authorization?
+#### 7. What is the difference between authentication and authorization?
 
  - Authentication is all about verifying if the credentials entered during login matches the database, while authorization focuses on what the user is allowed and not allowed to do, such as visiting a private personnel page.
 
 
 
-8. Does placing a route inside the auth middleware group automatically make a user an administrator? Explain your answer.
+#### 8. Does placing a route inside the auth middleware group automatically make a user an administrator? Explain your answer.
 
  - No, it depends what level of permission does the current user have, such as administrator mode, or typical consumer or user mode.
 
