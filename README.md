@@ -1,3 +1,26 @@
+IV. Laboratory Deliverables
+
+Submit the following:
+#### 1. Screenshot of the Laravel Breeze login page.
+
+#### 2. Screenshot of the registration page.
+
+#### 3. Screenshot showing a successfully registered user.
+
+#### 4. Screenshot of the Product CRUD page after login.
+
+#### 5. Screenshot showing the login redirect when a logged-out user accesses /product.
+
+#### 6. Screenshot showing the password reset email or a successful email test.
+
+#### 7. Copy of the modified routes/web.php.
+
+#### 8. A short explanation of how authentication middleware protects the Product CRUD 
+application.
+
+
+
+
 V. Guide Questions
 
 Answer the following questions:
