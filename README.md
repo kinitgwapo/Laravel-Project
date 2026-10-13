@@ -1,12 +1,12 @@
 V. Guide Questions
 
 Answer the following questions:
-1. What is Laravel Breeze, and what problem does it solve?
+#### 1. What is Laravel Breeze, and what problem does it solve?
 
   - Laravel breeze is a starter kit for Laravel projects, which is built on a php framework and provides basic authentication features within the frontend design and backend logic. It saves a lot of time for the developers and focus on what their main goal was.
 
 
-2. What is the difference between registration and authentication?
+#### 2. What is the difference between registration and authentication?
 
  - Registration is all about signing up a new user, while authentication focuses on verifying whether the user credentials entered are legitimate.
 
