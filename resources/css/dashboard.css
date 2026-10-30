@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=VT323&display=swap');
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(
+        circle at center,
+        #350006 0%,
+        #160003 55%,
+        #030002 100%
+    );
+    color: #ff3333;
+    font-family: 'VT323', monospace;
+}
+
+/* Main layout */
+.dashboard-page {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* Header */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    border-top: 2px solid #800000;
+    border-bottom: 2px solid #800000;
+    color: #ff1111;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.dashboard-header p {
+    margin-top: 14px;
+    color: #cc5555;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+}
+
+/* Navigation */
+.dashboard-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 25px;
+    padding: 14px 18px;
+    background: rgba(5, 0, 2, 0.9);
+    border: 1px solid #550000;
+}
+
+.user-greeting {
+    font-size: 1.2rem;
+    overflow-wrap: anywhere;
+}
+
+/* Logout button */
+.logout-button {
+    padding: 8px 16px;
+    border: 1px solid #ff2222;
+    background: transparent;
+    color: #ff3333;
+    font: 1.1rem 'VT323', monospace;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background: #ff2222;
+    color: #030002;
+}
+
+/* Dashboard card */
+.dashboard-card {
+    padding: 30px;
+    background: rgba(5, 0, 2, 0.95);
+    border: 1px solid #800000;
+    border-radius: 3px;
+    box-shadow: 0 0 24px rgba(255, 0, 0, 0.2);
+    text-align: center;
+}
+
+.dashboard-card h2 {
+    margin: 0 0 25px;
+    color: #ff2222;
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
+
+.dashboard-message {
+    margin: 0;
+    color: #ff5555;
+    font-size: 1.6rem;
+}
+
+.dashboard-description {
+    margin: 12px 0 0;
+    color: #cc7777;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.dashboard-footer {
+    margin-top: 30px;
+    color: #773333;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .dashboard-page {
+        padding: 28px 16px;
+    }
+
+    .dashboard-nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-card {
+        padding: 24px 16px;
+    }
+}
+
+/* Product Management */
+.dashboard-divider {
+    height: 1px;
+    margin: 30px 0;
+    background: #550000;
+}
+
+.dashboard-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.dashboard-button {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid #ff2222;
+    background: transparent;
+    color: #ff3333;
+    font: 1.2rem 'VT323', monospace;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-button:hover {
+    background: #ff2222;
+    color: #030002;
+}
+
+.dashboard-button:focus-visible {
+    outline: 2px solid #ff7777;
+    outline-offset: 4px;
+}
