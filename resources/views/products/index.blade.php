@@ -25,6 +25,20 @@
             <span class="badge-subtitle">INDEX</span>
         </div>
 
+        <form action="{{ route('products.index') }}" method="GET" class="search-form">
+            <input type="text"
+                   name="search"
+                   value="{{ $search }}"
+                   placeholder="Search product name..."
+                   maxlength="255"
+            >
+            <button type="submit">Search</button>
+
+            @if($search !== '')
+                <a href="{{ route('products.index') }}">Clear</a>
+            @endif
+        </form>
+
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -40,46 +54,61 @@
                 @endif
 
             </tr>
-            @foreach($products as $product)
-            <tr>
-                <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}</td>
+            @forelse($products as $product)
+                <tr>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->name }}</td>
 
-                <td>
-                    @if($product->image_url)
-                        <a href="{{ route('products.show', $product) }}" title="View details">
-                            <img src="{{ $product->image_url }}"
-                                alt="{{ $product->name }}"
-                                style="width: 60px;
-                                        height: 60px;
-                                        object-fit: cover;"
-                            >
-                        </a>
-                    @else
-                        <span>No image</span>
+                    <td>
+                        @if($product->image_url)
+                            <a href="{{ route('products.show', $product) }}" title="View details">
+                                <img src="{{ $product->image_url }}"
+                                    alt="{{ $product->name }}"
+                                    style="width: 60px;
+                                            height: 60px;
+                                            object-fit: cover;"
+                                >
+                            </a>
+                        @else
+                            <span>No image</span>
+                        @endif
+                    </td>
+
+                    <td>{{ $product->qty }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->description }}</td>
+
+                    @if(auth()->user()->isAdmin())
+                        <td style="text-align: center;">
+                            <a class="edit-btn" href="{{ route('products.edit', ['product' => $product]) }}">Edit</a>
+                        </td>
+                        <td style="text-align: center;">
+                            <form action="{{ route('products.remove', ['product' => $product ]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                <button class="rmv-btn" type="submit">Delete</button>
+                            </form>
+                        </td>
                     @endif
-                </td>
-
-                <td>{{ $product->qty }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->description }}</td>
-
-                @if(auth()->user()->isAdmin())
-                    <td style="text-align: center;">
-                        <a class="edit-btn" href="{{ route('products.edit', ['product' => $product]) }}">Edit</a>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="{{ auth()->user()->isAdmin() ? 8 : 6 }}"
+                        style="text-align:center;"
+                    >
+                        @if($search !== '')
+                            No product found matching "{{ $search }}".
+                        @else
+                            No products available yet.
+                        @endif
                     </td>
-                    <td style="text-align: center;">
-                        <form action="{{ route('products.remove', ['product' => $product ]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                            <button class="rmv-btn" type="submit">Delete</button>
-                        </form>
-                    </td>
-                @endif
-                
-            </tr>
-            @endforeach
+                </tr>
+            @endforelse
         </table>
+
+        <div class="pagination-wrapper">
+            {{ $products->links() }}
+        </div>
     </div>
 </body>
 </html>

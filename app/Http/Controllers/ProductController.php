@@ -8,9 +8,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function index() {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+    public function index(Request $request) {
+        $search = trim((string) $request->query('search', ''));
+
+        $products = Product::query()->when($search !== '', function ($query) use ($search)
+        {
+            $query->where('name', 'like', "%{$search}%");
+        })->orderBy('id')->paginate(8)->withQueryString();
+
+        return view('products.index', compact('products', 'search'));
     }
 
     public function create() {
