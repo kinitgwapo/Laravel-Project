@@ -55,6 +55,7 @@
                     <input type="number"
                            min="0"
                            step="1"
+                           onkeydown="if (event.key === '-') event.preventDefault();"
                            required
                            name="qty"
                            placeholder="0"
@@ -66,6 +67,7 @@
                     <input type="number"
                            min="0"
                            step="0.01"
+                           onkeydown="if (event.key === '-') event.preventDefault();"
                            required
                            name="price"
                            placeholder="0.00"
