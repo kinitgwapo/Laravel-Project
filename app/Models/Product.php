@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Product extends Model
 {
@@ -13,6 +14,14 @@ class Product extends Model
         'name',
         'qty',
         'price',
-        'description'
+        'description',
+        'image',
     ];
+
+    protected function imageUrl(): Attribute
+    {
+        return Attribute::get(
+            fn () => $this->image ? asset('storage/' . $this->image) : NULL
+        );
+    }
 }

@@ -36,7 +36,7 @@
         @endif
 
         <div class="form-container">
-            <form action="{{ route('products.update', $product) }}" method="post">
+            <form action="{{ route('products.update', $product) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -83,6 +83,22 @@
                            name="description"
                            placeholder="Description"
                            value="{{ $product->description }}"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Image (optional)</label>
+                    @if($product->image_url)
+                        <img src="{{ $product->image_url }}"
+                             alt="{{ $product->name }}"
+                             style="max-width: 150px;
+                                    display: block;
+                                    margin-bottom: 10px;"
+                        >
+                    @endif
+                    <input type="file"
+                           name="image"
+                           accept="image/jpeg,image/png,image/webp"
                     >
                 </div>
 

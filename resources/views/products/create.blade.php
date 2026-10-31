@@ -36,7 +36,7 @@
         @endif
 
         <div class="form-container">
-            <form action="{{ route('products.store') }}" method="post">
+            <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
@@ -79,6 +79,14 @@
                     <input type="text"
                            name="description"
                            placeholder="Enter Description"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Image (optional)</label>
+                    <input type="file"
+                           name="image"
+                           accept="image/jpeg,image/png,image/webp"
                     >
                 </div>
 

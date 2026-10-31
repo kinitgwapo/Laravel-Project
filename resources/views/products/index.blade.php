@@ -29,6 +29,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Description</th>
@@ -43,6 +44,22 @@
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
+
+                <td>
+                    @if($product->image_url)
+                        <a href="{{ route('products.show', $product) }}" title="View details">
+                            <img src="{{ $product->image_url }}"
+                                alt="{{ $product->name }}"
+                                style="width: 60px;
+                                        height: 60px;
+                                        object-fit: cover;"
+                            >
+                        </a>
+                    @else
+                        <span>No image</span>
+                    @endif
+                </td>
+
                 <td>{{ $product->qty }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->description }}</td>
