@@ -42,22 +42,42 @@
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="Enter Product Name">
+                    <input type="text"
+                           maxlength="255"
+                           required
+                           name="name"
+                           placeholder="Enter Product Name"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Quantity</label>
-                    <input type="number" name="qty" placeholder="0">
+                    <input type="number"
+                           min="0"
+                           step="1"
+                           required
+                           name="qty"
+                           placeholder="0"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" step="0.01" name="price" placeholder="0.00">
+                    <input type="number"
+                           min="0"
+                           step="0.01"
+                           required
+                           name="price"
+                           placeholder="0.00"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" name="description" placeholder="Enter Description">
+                    <input type="text"
+                           name="description"
+                           placeholder="Enter Description"
+                    >
                 </div>
 
                 <div>

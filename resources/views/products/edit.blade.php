@@ -42,22 +42,46 @@
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="Name" value="{{ $product->name }}">
+                    <input type="text"
+                           maxlength="255"
+                           required
+                           name="name"
+                           placeholder="Name"
+                           value="{{ $product->name }}"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Quantity</label>
-                    <input type="number" name="qty" placeholder="Quantity" value="{{ $product->qty }}">
+                    <input type="number"
+                           min="0"
+                           step="1"
+                           required
+                           name="qty"
+                           placeholder="Quantity"
+                           value="{{ $product->qty }}"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" step="0.01" name="price" placeholder="Price" value="{{ $product->price }}">
+                    <input type="number"
+                           min="0"
+                           step="0.01"
+                           required
+                           name="price"
+                           placeholder="Price"
+                           value="{{ $product->price }}"
+                    >
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" name="description" placeholder="Description" value="{{ $product->description }}">
+                    <input type="text"
+                           name="description"
+                           placeholder="Description"
+                           value="{{ $product->description }}"
+                    >
                 </div>
 
                 <div>
