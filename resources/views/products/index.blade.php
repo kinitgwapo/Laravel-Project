@@ -59,19 +59,14 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
 
-                    <td>
-                        @if($product->image_url)
-                            <a href="{{ route('products.show', $product) }}" title="View details">
-                                <img src="{{ $product->image_url }}"
-                                    alt="{{ $product->name }}"
-                                    style="width: 60px;
-                                            height: 60px;
-                                            object-fit: cover;"
-                                >
-                            </a>
-                        @else
-                            <span>No image</span>
-                        @endif
+                    <td class="image-cell">
+                        <a href="{{ route('products.show', $product) }}" title="View details">
+                            @if($product->image_url)
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="product-thumb">
+                            @else
+                                <span class="no-image">No image</span>
+                            @endif
+                        </a>
                     </td>
 
                     <td>{{ $product->qty }}</td>

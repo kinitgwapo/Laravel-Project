@@ -188,6 +188,41 @@ td {
     text-align: left;
 }
 
+/* Product image cell */
+td.image-cell {
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+
+td.image-cell a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.product-thumb {
+    display: block;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.35);
+    transition: all 0.2s ease-in-out;
+}
+
+.product-thumb:hover {
+    box-shadow: 0 0 14px #ff0000;
+}
+
+.no-image {
+    color: #803030;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 tr:hover {
     background-color: rgba(255, 0, 0, 0.18);
 }
