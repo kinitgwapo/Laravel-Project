@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/product/{product}/remove', [ProductController::class, 'remove']) -> name ('products.remove');
     });
 
+    // /product/create/ must be initialized first before show page
+    Route::get('/product/{product}', [productController::class, 'show']) -> name ('products.show');
 });
 
 require __DIR__.'/auth.php';
