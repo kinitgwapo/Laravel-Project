@@ -32,8 +32,12 @@
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Description</th>
-                <th>Edit</th>
-                <th>Delete</th>
+
+                @if(auth()->user()->isAdmin())
+                    <th>Edit</th>
+                    <th>Delete</th>
+                @endif
+
             </tr>
             @foreach($products as $product)
             <tr>
@@ -42,16 +46,20 @@
                 <td>{{ $product->qty }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->description }}</td>
-                <td style="text-align: center;">
-                    <a class="edit-btn" href="{{ route('products.edit', ['product' => $product]) }}">Edit</a>
-                </td>
-                <td style="text-align: center;">
-                    <form action="{{ route('products.remove', ['product' => $product ]) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                        <button class="rmv-btn" type="submit">Delete</button>
-                    </form>
-                </td>
+
+                @if(auth()->user()->isAdmin())
+                    <td style="text-align: center;">
+                        <a class="edit-btn" href="{{ route('products.edit', ['product' => $product]) }}">Edit</a>
+                    </td>
+                    <td style="text-align: center;">
+                        <form action="{{ route('products.remove', ['product' => $product ]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <button class="rmv-btn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                @endif
+                
             </tr>
             @endforeach
         </table>

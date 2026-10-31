@@ -55,9 +55,12 @@
                     VIEW PRODUCTS
                 </a>
 
-                <a href="{{ route('products.create') }}" class="dashboard-button">
-                    + CREATE PRODUCT
-                </a>
+                @if(Auth::user()->isAdmin())
+                    <a href="{{ route('products.create') }}" class="dashboard-button">
+                        + CREATE PRODUCT
+                    </a>
+                @endif
+
             </div>
         </section>
 

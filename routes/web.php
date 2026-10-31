@@ -17,12 +17,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Both Roles user and admin
     Route::get('/product', [ProductController::class, 'index']) -> name ('products.index');
-    Route::get('/product/create', [ProductController::class, 'create']) -> name ('products.create');
-    Route::post('/product', [ProductController::class, 'store']) -> name ('products.store');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit']) -> name ('products.edit');
-    Route::put('/product/{product}/update', [ProductController::class, 'update']) -> name ('products.update');
-    Route::delete('/product/{product}/remove', [ProductController::class, 'remove']) -> name ('products.remove');
+
+    // Admin only
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/product/create', [ProductController::class, 'create']) -> name ('products.create');
+        Route::post('/product', [ProductController::class, 'store']) -> name ('products.store');
+        Route::get('/product/{product}/edit', [ProductController::class, 'edit']) -> name ('products.edit');
+        Route::put('/product/{product}/update', [ProductController::class, 'update']) -> name ('products.update');
+        Route::delete('/product/{product}/remove', [ProductController::class, 'remove']) -> name ('products.remove');
+    });
+
 });
 
 require __DIR__.'/auth.php';
